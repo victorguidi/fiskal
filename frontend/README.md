@@ -1,38 +1,25 @@
-# create-svelte
+## Frontend Info
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+### Suplier Info
 
-## Creating a project
+  - /createSupplier
+  - /updateSupplier
+  - /getSupplierInfo
+  - /getSuppliers/@Query(supplier, date of creation, need approval)
+  - /getFiles/@Query(supplier, date of creation, need approval)
+  - /wss/notify
+  - /wss/chat/:sessionId
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Company Info
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+  - /createCompany
+  - /updateCompany
+  - /getCompanyInfo
+  - /wss/notify
+  - /wss/chat/:sessionId
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### Files Info
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+  - /upload
+  - /update/:id
+  - /delete/:id
