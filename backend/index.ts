@@ -1,13 +1,13 @@
 import { GetHelloWorld } from "./controllers/receipts.controllers"
 import { ConnectDB } from "./storage/db";
 
-const db = ConnectDB()
+export const db = ConnectDB()
 
 Bun.serve({
   fetch(req: Request, server): Response | Promise<Response | any> | any {
     const url = new URL(req.url);
 
-    if (url.pathname === "/api/getCompanies") return GetHelloWorld(db);
+    if (url.pathname === "/api/getCompanies") return GetHelloWorld();
 
     if (server.upgrade(req)) {
       return; // do not return a Response

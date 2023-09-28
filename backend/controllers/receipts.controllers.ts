@@ -1,21 +1,8 @@
-import { Client } from "pg"
+import { GetCompanies } from "../services/company/company.services"
 
-interface Company {
-  id?: string
-  company: string
-  addr?: string
-  email: string
-}
+export async function GetHelloWorld(): Promise<Response> {
 
-export async function GetHelloWorld(db: Client): Promise<Response> {
-
-  const companies = await db.query('SELECT id, company, addr, email FROM public."Company";')
-    .then(res => {
-      return res.rows as Company[]
-    })
-    .catch((error)=> {
-      console.log(error)
-    })
+  const companies = await GetCompanies()
 
   return Response.json(companies)
 }
