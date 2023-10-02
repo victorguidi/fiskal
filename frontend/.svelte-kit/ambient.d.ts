@@ -26,6 +26,7 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const PATH: string;
 	export const SHELL: string;
 	export const LSCOLORS: string;
 	export const COLORTERM: string;
@@ -37,13 +38,11 @@ declare module '$env/static/private' {
 	export const XDG_BACKEND: string;
 	export const _P9K_TTY: string;
 	export const NODE: string;
-	export const SSH_AUTH_SOCK: string;
 	export const P9K_TTY: string;
 	export const HF_DATASETS_CACHE: string;
 	export const npm_config_local_prefix: string;
 	export const LIBVA_DRIVER_NAME: string;
 	export const DESKTOP_SESSION: string;
-	export const SSH_AGENT_PID: string;
 	export const KITTY_PID: string;
 	export const XCURSOR_SIZE: string;
 	export const XDG_SEAT: string;
@@ -51,8 +50,8 @@ declare module '$env/static/private' {
 	export const XDG_SESSION_DESKTOP: string;
 	export const LOGNAME: string;
 	export const XDG_SESSION_TYPE: string;
-	export const _: string;
 	export const KITTY_PUBLIC_KEY: string;
+	export const ASDF_DEFAULT_TOOL_VERSIONS_FILENAME: string;
 	export const MOTD_SHOWN: string;
 	export const BINARYEN_ROOT: string;
 	export const HOME: string;
@@ -65,6 +64,7 @@ declare module '$env/static/private' {
 	export const WAYLAND_DISPLAY: string;
 	export const KITTY_WINDOW_ID: string;
 	export const XDG_SEAT_PATH: string;
+	export const ASDF_DATA_DIR: string;
 	export const XDG_SESSION_CLASS: string;
 	export const TERMINFO: string;
 	export const TERM: string;
@@ -78,7 +78,6 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const MOZ_ENABLE_WAYLAND: string;
 	export const PAGER: string;
-	export const _P9K_SSH_TTY: string;
 	export const XDG_VTNR: string;
 	export const XDG_SESSION_ID: string;
 	export const npm_config_user_agent: string;
@@ -88,14 +87,14 @@ declare module '$env/static/private' {
 	export const DOCKER_HOST: string;
 	export const npm_package_json: string;
 	export const BUN_INSTALL: string;
-	export const P9K_SSH: string;
-	export const PATH: string;
+	export const ASDF_CONFIG_FILE: string;
 	export const ZELLIJ: string;
 	export const DBUS_SESSION_BUS_ADDRESS: string;
 	export const MAIL: string;
 	export const KITTY_INSTALLATION_DIR: string;
 	export const npm_node_execpath: string;
 	export const OLDPWD: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -125,6 +124,7 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		PATH: string;
 		SHELL: string;
 		LSCOLORS: string;
 		COLORTERM: string;
@@ -136,13 +136,11 @@ declare module '$env/dynamic/private' {
 		XDG_BACKEND: string;
 		_P9K_TTY: string;
 		NODE: string;
-		SSH_AUTH_SOCK: string;
 		P9K_TTY: string;
 		HF_DATASETS_CACHE: string;
 		npm_config_local_prefix: string;
 		LIBVA_DRIVER_NAME: string;
 		DESKTOP_SESSION: string;
-		SSH_AGENT_PID: string;
 		KITTY_PID: string;
 		XCURSOR_SIZE: string;
 		XDG_SEAT: string;
@@ -150,8 +148,8 @@ declare module '$env/dynamic/private' {
 		XDG_SESSION_DESKTOP: string;
 		LOGNAME: string;
 		XDG_SESSION_TYPE: string;
-		_: string;
 		KITTY_PUBLIC_KEY: string;
+		ASDF_DEFAULT_TOOL_VERSIONS_FILENAME: string;
 		MOTD_SHOWN: string;
 		BINARYEN_ROOT: string;
 		HOME: string;
@@ -164,6 +162,7 @@ declare module '$env/dynamic/private' {
 		WAYLAND_DISPLAY: string;
 		KITTY_WINDOW_ID: string;
 		XDG_SEAT_PATH: string;
+		ASDF_DATA_DIR: string;
 		XDG_SESSION_CLASS: string;
 		TERMINFO: string;
 		TERM: string;
@@ -177,7 +176,6 @@ declare module '$env/dynamic/private' {
 		SHLVL: string;
 		MOZ_ENABLE_WAYLAND: string;
 		PAGER: string;
-		_P9K_SSH_TTY: string;
 		XDG_VTNR: string;
 		XDG_SESSION_ID: string;
 		npm_config_user_agent: string;
@@ -187,14 +185,14 @@ declare module '$env/dynamic/private' {
 		DOCKER_HOST: string;
 		npm_package_json: string;
 		BUN_INSTALL: string;
-		P9K_SSH: string;
-		PATH: string;
+		ASDF_CONFIG_FILE: string;
 		ZELLIJ: string;
 		DBUS_SESSION_BUS_ADDRESS: string;
 		MAIL: string;
 		KITTY_INSTALLATION_DIR: string;
 		npm_node_execpath: string;
 		OLDPWD: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
