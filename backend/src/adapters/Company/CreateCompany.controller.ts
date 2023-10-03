@@ -3,7 +3,7 @@ import CreateCompany from "../../core/company/services/CreateCompany.service";
 import { z } from "zod";
 import { Company } from "../../dtos/Company.dto";
 
-export default class CompanyController {
+export default class CreateCompanyController {
   constructor(
     readonly server: Elysia,
     readonly baseMethod: CreateCompany

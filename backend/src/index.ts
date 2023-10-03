@@ -1,15 +1,28 @@
 import { Elysia } from "elysia";
 import CompanyPrismaRepository from "./external/Prisma/CompanyPrisma.repository";
 import CreateCompany from "./core/company/services/CreateCompany.service";
-import CompanyController from "./adapters/Company/Company.controller";
+import CreateCompanyController from "./adapters/Company/CreateCompany.controller";
+import GetByCompanyEmail from "./core/company/services/GetCompanyByEmail.service";
+import GetCompanyByEmailController from "./adapters/Company/GetByEmail.controller";
 
 const app = new Elysia()
 
-const companyRepository = new CompanyPrismaRepository()
+//--------- Company 
+const companyRepository = new CompanyPrismaRepository() // Connections to the DB
 const createCompany = new CreateCompany(companyRepository)
-new CompanyController(app, createCompany)
+const getCompanyByEmail = new GetByCompanyEmail(companyRepository)
+new CreateCompanyController(app, createCompany)
+new GetCompanyByEmailController(app, getCompanyByEmail)
 
-app.listen(5000);
+//--------- Users
+
+
+//--------- Receipts
+
+
+//--------- Files
+
+app.listen(process.env.PORT || 5000);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
