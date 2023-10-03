@@ -7,7 +7,7 @@ export default class GetCompanyByEmailController {
     readonly server: Elysia,
     readonly baseMethod: GetByCompanyEmail
   ) {
-    server.get("api/company", async ({ query }) => {
+    server.get("api/company/byemail", async ({ query }) => {
 
       z.string().email().parse(query.email)
 

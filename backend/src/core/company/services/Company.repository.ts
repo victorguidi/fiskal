@@ -4,14 +4,14 @@ export default interface CompanyRepository {
 
   createCompany(company: Company): Promise<void>
 
-  getCompanies(): Promise<Company[]>
+  getCompanies(pageN: number, pageS: number): Promise<Company[]>
 
   getById(id: string): Promise<Company>
 
   getByEmail(email: string): Promise<Company>
 
-  updateCompany(): Promise<void>
+  updateCompany(id: string, company: Partial<Company>): Promise<void>
 
-  deleteCompany(): Promise<void>
+  deleteCompany(id: string): Promise<void>
 
 }

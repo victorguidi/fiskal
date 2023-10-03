@@ -16,8 +16,11 @@ export default class CompanyPrismaRepository implements CompanyRepository {
       })
   }
 
-  async getCompanies(): Promise<Company[]> {
-    return await this.prisma.company.findMany()
+  async getCompanies(pageN: number, pageS: number): Promise<Company[]> {
+    return await this.prisma.company.findMany({
+      skip: pageN,
+      take: pageS,
+    })
       .then(res => res as Company[])
       .catch(err => {
         throw new Error(err)
@@ -48,10 +51,27 @@ export default class CompanyPrismaRepository implements CompanyRepository {
       })
   }
 
-  async updateCompany(): Promise<void> {
-
+  async updateCompany(id: string, company: Partial<Company>): Promise<void> {
+    await this.prisma.company.update({
+      where: {
+        id
+      },
+      data: company
+    })
+      .catch(err => {
+        throw new Error(err)
+      })
   }
 
-  async deleteCompany(): Promise<void> { }
+  async deleteCompany(id: string): Promise<void> {
+    await this.prisma.company.delete({
+      where: {
+        id
+      }
+    })
+      .catch(err => {
+        throw new Error(err)
+      })
+  }
 
 }
