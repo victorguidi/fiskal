@@ -14,3 +14,17 @@ model Company {
   createdAt DateTime @default(now())
   updateAt  DateTime @default(now())
 }
+
+model Users {
+  id        String   @id @default(uuid())
+  username  String
+  email     String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}

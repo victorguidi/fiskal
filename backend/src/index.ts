@@ -33,6 +33,7 @@ new UpdateCompanyController(app, updateCompany)
 new DeleteCompanyController(app, deleteCompany)
 
 //--------- Users
+const UsersRepository = new UsersPrismaRepository()
 
 
 //--------- Receipts
