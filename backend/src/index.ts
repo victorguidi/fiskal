@@ -12,6 +12,11 @@ import DeleteCompany from "./core/company/services/DeleteCompany.service";
 import DeleteCompanyController from "./adapters/Company/DeleteCompany.controller";
 import UpdateCompany from "./core/company/services/UpdateCompany.service";
 import UpdateCompanyController from "./adapters/Company/UpdateCompany.controller";
+import UserPrismaRepository from "./external/Prisma/UserPrisma.repository";
+import CreateUser from "./core/User/services/CreateUser.service";
+import CreateUserController from "./adapters/User/CreateUser.controller";
+import GetUserByEmail from "./core/User/services/GetByEmail.service";
+import GetUserByEmailController from "./adapters/User/GetUserByEmail.controller";
 
 const app = new Elysia()
 
@@ -33,8 +38,13 @@ new UpdateCompanyController(app, updateCompany)
 new DeleteCompanyController(app, deleteCompany)
 
 //--------- Users
-const UsersRepository = new UsersPrismaRepository()
+const userRepository = new UserPrismaRepository() // Connections to the DB
 
+const createUser = new CreateUser(userRepository)
+const getUserByEmail = new GetUserByEmail(userRepository)
+
+new CreateUserController(app, createUser)
+new GetUserByEmailController(app, getUserByEmail)
 
 //--------- Receipts
 

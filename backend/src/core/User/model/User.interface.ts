@@ -1,4 +1,4 @@
-enum Role {
+export enum Role {
   USER,
   ADMIN
 }
@@ -7,7 +7,7 @@ export default interface User {
   id?: string
   username: string
   email: string
-  role: Role
+  role: 'USER' | 'ADMIN'
   createdAt?: Date
   updatedAt?: Date
 }

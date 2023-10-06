@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { User } from "../../dtos/User.dto";
 import UserRepository from "../../core/User/services/User.repository";
+import User from "../../core/User/model/User.interface";
 
 export default class UserPrismaRepository implements UserRepository {
   private prisma: PrismaClient
@@ -9,8 +9,6 @@ export default class UserPrismaRepository implements UserRepository {
     this.prisma = new PrismaClient()
   }
 
-
-  // FIXME: Needs fixing on the types
   async create(user: User): Promise<void> {
     await this.prisma.users.create({ data: user })
       .catch(err => {
@@ -53,12 +51,12 @@ export default class UserPrismaRepository implements UserRepository {
       })
   }
 
-  async update(id: string, company: Partial<User>): Promise<void> {
+  async update(id: string, user: Partial<User>): Promise<void> {
     await this.prisma.users.update({
       where: {
         id
       },
-      data: company
+      data: user
     })
       .catch(err => {
         throw new Error(err)

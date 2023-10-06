@@ -18,7 +18,7 @@ model Company {
 model Users {
   id        String   @id @default(uuid())
   username  String
-  email     String
+  email     String   @unique
   role      Role     @default(USER)
   createdAt DateTime @default(now())
   updateAt  DateTime @default(now())
