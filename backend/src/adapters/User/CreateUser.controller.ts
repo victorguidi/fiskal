@@ -3,6 +3,7 @@ import { z } from "zod";
 import CreateUser from "../../core/User/services/CreateUser.service";
 import User, { Role } from "../../core/User/model/User.interface";
 
+// TODO: Check How can I validate the role as a ENUM here
 export default class CreateUserController {
   constructor(
     readonly server: Elysia,
