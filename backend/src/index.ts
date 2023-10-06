@@ -17,6 +17,10 @@ import CreateUser from "./core/User/services/CreateUser.service";
 import CreateUserController from "./adapters/User/CreateUser.controller";
 import GetUserByEmail from "./core/User/services/GetByEmail.service";
 import GetUserByEmailController from "./adapters/User/GetUserByEmail.controller";
+import GetUsers from "./core/User/services/GetUsers.service";
+import GetUserById from "./core/User/services/GetUserById.service";
+import GetUsersController from "./adapters/User/GetUsers.controller";
+import GetUserByIdController from "./adapters/User/GetUserById.controller";
 
 const app = new Elysia()
 
@@ -41,10 +45,15 @@ new DeleteCompanyController(app, deleteCompany)
 const userRepository = new UserPrismaRepository() // Connections to the DB
 
 const createUser = new CreateUser(userRepository)
+const getUsers = new GetUsers(userRepository)
 const getUserByEmail = new GetUserByEmail(userRepository)
+const getUserById = new GetUserById(userRepository)
 
 new CreateUserController(app, createUser)
+new GetUsersController(app, getUsers)
 new GetUserByEmailController(app, getUserByEmail)
+new GetUserByIdController(app, getUserById)
+
 
 //--------- Receipts
 

@@ -1,17 +1,16 @@
 import BasicMethods from "../../shared/BasicMethods.shared";
+import { pages } from "../../shared/types.shared";
 import User from "../model/User.interface";
 import UserRepository from "./User.repository";
 
-export default class GetUserByEmail implements BasicMethods<string, User> {
-
+export default class GetUsers implements BasicMethods<pages, User[]> {
   constructor(
     private readonly repository: UserRepository
   ) { }
 
-  async call(email: string): Promise<User> {
-    return await this.repository.getByEmail(email)
+  async call(pages: pages): Promise<User[]> {
+    return await this.repository.get(pages.pageN, pages.pageS)
       .then((res: any) => {
-        if (!res) throw new Error("This email does not exists")
         return res
       })
       .catch((err: any) => {
