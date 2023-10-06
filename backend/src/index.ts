@@ -21,6 +21,13 @@ import GetUsers from "./core/User/services/GetUsers.service";
 import GetUserById from "./core/User/services/GetUserById.service";
 import GetUsersController from "./adapters/User/GetUsers.controller";
 import GetUserByIdController from "./adapters/User/GetUserById.controller";
+import UpdateUser from "./core/User/services/UpdateUser.service";
+import DeleteUser from "./core/User/services/DeleteUser.service";
+import DeleteUserController from "./adapters/User/DeleteUser.controller";
+import UpdateUserController from "./adapters/User/UpdateUser.controller";
+
+// TODO: Better Error messages
+// TODO: Better Return messages
 
 const app = new Elysia()
 
@@ -48,12 +55,15 @@ const createUser = new CreateUser(userRepository)
 const getUsers = new GetUsers(userRepository)
 const getUserByEmail = new GetUserByEmail(userRepository)
 const getUserById = new GetUserById(userRepository)
+const updateUser = new UpdateUser(userRepository)
+const deleteUser = new DeleteUser(userRepository)
 
 new CreateUserController(app, createUser)
 new GetUsersController(app, getUsers)
 new GetUserByEmailController(app, getUserByEmail)
 new GetUserByIdController(app, getUserById)
-
+new UpdateUserController(app, updateUser)
+new DeleteUserController(app, deleteUser)
 
 //--------- Receipts
 
