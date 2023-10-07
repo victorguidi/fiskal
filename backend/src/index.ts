@@ -30,6 +30,14 @@ import CreateReceipt from "./core/Receipt/services/CreateReceipt.service";
 import GetReceipts from "./core/Receipt/services/GetReceipts.service";
 import CreateReceiptController from "./adapters/Receipts/CreateReceipt.controller";
 import GetReceiptController from "./adapters/Receipts/GetReceipts.controller";
+import GetReceiptsByRID from "./core/Receipt/services/GetReceiptsByRID.service";
+import GetReceiptByRIDController from "./adapters/Receipts/GetReceiptsByRID.controller";
+import GetReceiptsById from "./core/Receipt/services/GetReceiptsByRID.service";
+import GetReceiptByIdController from "./adapters/Receipts/GetReceiptsByRID.controller";
+import UpdateReceipt from "./core/Receipt/services/UpdateReceipt.service";
+import UpdateReceiptController from "./adapters/Receipts/UpdateReceipt.controller";
+import DeleteReceipt from "./core/Receipt/services/DeleteReceipt.service";
+import DeleteReceiptController from "./adapters/Receipts/DeleteReceipt.controller";
 
 // TODO: Better Error messages
 // TODO: Better Return messages
@@ -75,10 +83,17 @@ const receiptRepository = new ReceiptPrismaRepository()
 
 const createReceipt = new CreateReceipt(receiptRepository)
 const getReceipts = new GetReceipts(receiptRepository)
+const getReceiptsByRID = new GetReceiptsByRID(receiptRepository)
+const getReceiptsById = new GetReceiptsById(receiptRepository)
+const updateReceipts = new UpdateReceipt(receiptRepository)
+const deleteReceipts = new DeleteReceipt(receiptRepository)
 
 new CreateReceiptController(app, createReceipt)
 new GetReceiptController(app, getReceipts)
-
+new GetReceiptByRIDController(app, getReceiptsByRID)
+new GetReceiptByIdController(app, getReceiptsById)
+new UpdateReceiptController(app, updateReceipts)
+new DeleteReceiptController(app, deleteReceipts)
 
 //--------- Files
 

@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import ReceiptRepository from "../../core/Receipt/services/Receipt.repository";
 import { IReceipt } from "../../core/Receipt/model/Receipt.interface";
 
+// FIX: Types for the relations here
 export default class ReceiptPrismaRepository implements ReceiptRepository {
   private prisma: PrismaClient
 
