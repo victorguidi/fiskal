@@ -9,7 +9,7 @@ export default class CreateReceipt implements BasicMethods<IReceipt, void> {
   ) { }
 
   async call(obj: IReceipt): Promise<void> {
-    const { receiptId, whoRequests, whoBelongs } = obj;
+    const { receiptId, whoRequestsId, whoBelongsId } = obj;
 
     await this.repository.getBy(receiptId)
       .then((res: any) => {
@@ -17,7 +17,7 @@ export default class CreateReceipt implements BasicMethods<IReceipt, void> {
       })
       .catch((err: any) => { throw new Error(err) })
 
-    await this.repository.create({ receiptId, whoRequests, whoBelongs })
+    await this.repository.create({ receiptId, whoRequestsId, whoBelongsId })
       .then(() => {
         return "Receipt Created"
       })

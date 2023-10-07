@@ -25,6 +25,11 @@ import UpdateUser from "./core/User/services/UpdateUser.service";
 import DeleteUser from "./core/User/services/DeleteUser.service";
 import DeleteUserController from "./adapters/User/DeleteUser.controller";
 import UpdateUserController from "./adapters/User/UpdateUser.controller";
+import ReceiptPrismaRepository from "./external/Prisma/ReceiptPrisma.repository";
+import CreateReceipt from "./core/Receipt/services/CreateReceipt.service";
+import GetReceipts from "./core/Receipt/services/GetReceipts.service";
+import CreateReceiptController from "./adapters/Receipts/CreateReceipt.controller";
+import GetReceiptController from "./adapters/Receipts/GetReceipts.controller";
 
 // TODO: Better Error messages
 // TODO: Better Return messages
@@ -66,6 +71,13 @@ new UpdateUserController(app, updateUser)
 new DeleteUserController(app, deleteUser)
 
 //--------- Receipts
+const receiptRepository = new ReceiptPrismaRepository()
+
+const createReceipt = new CreateReceipt(receiptRepository)
+const getReceipts = new GetReceipts(receiptRepository)
+
+new CreateReceiptController(app, createReceipt)
+new GetReceiptController(app, getReceipts)
 
 
 //--------- Files
